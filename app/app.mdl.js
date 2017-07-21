@@ -1,13 +1,14 @@
-import 'angular';
+import * as ng from 'angular';
 
 (function () {
-    'use strict';
+    'use strict';    
 
-    var app = angular.module('mainApp', [
+    var app = ng.module('mainApp', [
         // Angular modules 
 
         // Custom modules 
         
         // 3rd Party Modules
     ]);
+    
 })();

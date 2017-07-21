@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var helpers = require('./config/helpers');
+var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './app/index.js'
+        'app': './app/main.ts'
     },
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: './dist',
         inline: true,
@@ -13,8 +15,27 @@ module.exports = {
         stats: 'minimal',
         port: 8080
     },
+    /*resolve: {
+        extensions: ['.ts', '.js'],
+        modules: [
+            //needed for non-relative paths in tsconfig.json
+            "/app"
+        ]
+    },*/
+    resolve: {
+        extensions: ['.ts', '.js']
+    },
     module: {
-        loaders: [
+        rules: [
+            {
+              test: /\.ts$/,
+              loaders: [
+                {
+                    loader: 'awesome-typescript-loader',
+                    options: { configFileName: helpers.root('app', 'tsconfig.json') }
+                }, 'angular2-template-loader'
+              ]
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -23,11 +44,21 @@ module.exports = {
             {
                 test: /\.html$/,
                 exclude: /node_modules/,
-                loader: "raw-loader"
+                loader: "html-loader"
             }
         ]
     },
     plugins: [
+        // Workaround for angular/angular#11580
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            helpers.root('./src'), // location of your src
+            {} // a map of your routes
+        ),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['app']
+        }),
         new HtmlWebpackPlugin({
             title: 'Development',
             template: './index.html'

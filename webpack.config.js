@@ -5,7 +5,8 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'app': './app/main.ts'
+        'appAngularJS': './app/AngularJS/index.js',
+        'appAngular': './app/Angular/main.ts',
     },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
@@ -57,7 +58,7 @@ module.exports = {
             {} // a map of your routes
         ),
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['app']
+            name: ['appAngular', 'appAngularJS']
         }),
         new HtmlWebpackPlugin({
             title: 'Development',

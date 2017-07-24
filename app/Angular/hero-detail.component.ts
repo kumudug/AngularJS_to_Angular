@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Hero } from './hero';
 
 @Component({
   selector: 'hero-detail',
   template: `
-    <h2>Windstorm details!</h2>
-    <div><label>id: </label>1</div>
+    <h2>{{hero.name}} details!</h2>
+    <div><label>id: </label>{{hero.id}}</div>
+    <div><label>name: </label>{{hero.name}}</div>
+    <button (click)="onDelete()">Delete</button>
   `
 })
-export class HeroDetailComponent { }
+export class HeroDetailComponent {
+  @Input() hero: Hero;
+  @Output() deleted = new EventEmitter<Hero>();
+  onDelete() {
+    this.deleted.emit(this.hero);
+  }
+}

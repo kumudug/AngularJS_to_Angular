@@ -11,6 +11,15 @@
         /* jshint validthis:true */
         var vm = this;
 
+        vm.hero = {
+            id: 1,
+            name: 'hero1'
+        };
+
+        vm.onDelete = function(event){
+            console.log(event);
+        }
+
         vm.data = dataSvc.getData().then(
             function (data) {
                 $log.log(JSON.stringify(data));

@@ -1,19 +1,23 @@
 <html>
-    <head>
 
-    </head>
-    <body>
+<head>
+
+</head>
+
+<body>
     {{1 + 1}}
     <div ng-controller="homeCtrl as vm">
         <div ng-repeat="n in vm.data">
             {{n.number}} - {{n.name}}
         </div>
-        <hero-detail></hero-detail>
+        <hero-detail [hero]="vm.hero" (deleted)="vm.onDelete($event)">
+        </hero-detail>
     </div>
     <!--<div ng-include="'app/views/home.tpl.html'"></div>-->
     <!--<script src="node_modules/angular/angular.min.js"></script>
     <script src="app/app.mdl.js"></script>
     <script src="app/controllers/home.ctrl.js"></script>
     <script src="app/services/data.svc.js"></script>-->
-    </body>
+</body>
+
 </html>

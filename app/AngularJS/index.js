@@ -1,4 +1,4 @@
-import './app.mdl.js';
+import './app.mdl.ts';
 import './controllers/home.ctrl.js';
 import './views/home.tpl.html';
 import './services/data.svc.js';

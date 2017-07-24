@@ -16,13 +16,6 @@ module.exports = {
         stats: 'minimal',
         port: 8080
     },
-    /*resolve: {
-        extensions: ['.ts', '.js'],
-        modules: [
-            //needed for non-relative paths in tsconfig.json
-            "/app"
-        ]
-    },*/
     resolve: {
         extensions: ['.ts', '.js']
     },

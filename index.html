@@ -12,6 +12,8 @@
         </div>
         <hero-detail [hero]="vm.hero" (deleted)="vm.onDelete($event)">
         </hero-detail>
+        <hero-detail-component [hero]="vm.hero" (deleted)="vm.onDelete($event)">
+        </hero-detail-component>
     </div>
     <!--<div ng-include="'app/views/home.tpl.html'"></div>-->
     <!--<script src="node_modules/angular/angular.min.js"></script>

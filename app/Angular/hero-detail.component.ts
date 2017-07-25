@@ -4,7 +4,7 @@ import { Hero } from './hero';
 @Component({
   selector: 'hero-detail',
   template: `
-    <h2>{{hero.name}} details!</h2>
+    <h2>{{hero.name}} details! (Angular)</h2>
     <div><label>id: </label>{{hero.id}}</div>
     <div><label>name: </label>{{hero.name}}</div>
     <button (click)="onDelete()">Delete</button>

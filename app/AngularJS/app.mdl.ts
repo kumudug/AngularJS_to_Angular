@@ -6,17 +6,19 @@ import * as angular from 'angular';
 import { downgradeComponent } from '@angular/upgrade/static';
 
 import { HeroDetailComponent } from '../Angular/hero-detail.component';
+import { HeroDetail } from './directives/hero-detail.directive';
 
 (function () {
-    'use strict';    
+    'use strict';
 
     var app = angular.module('mainApp', [
         // Angular modules 
 
         // Custom modules 
-        
-        // 3rd Party Modules
-    ]);    
 
-    app.directive('heroDetail', downgradeComponent({ component: HeroDetailComponent }) as angular.IDirectiveFactory );
+        // 3rd Party Modules
+    ]);
+
+    app.directive('heroDetail', downgradeComponent({ component: HeroDetailComponent }) as ng.IDirectiveFactory);
+    app.component('heroDetailComponent', new HeroDetail());
 })();

@@ -7,7 +7,7 @@
 
     homeCtrl.$inject = ['$log', 'dataSvc'];
 
-    function homeCtrl($log, dataSvc) {
+    function homeCtrl($log:any, dataSvc:any) {
         /* jshint validthis:true */
         var vm = this;
 
@@ -16,19 +16,19 @@
             name: 'hero1'
         };
 
-        vm.onDelete = function(event){
+        vm.onDelete = function(event:any){
             console.log(event);
         }
 
         vm.data = dataSvc.getData().then(
-            function (data) {
+            function (data:any) {
                 $log.log(JSON.stringify(data));
                 vm.data = data;
             },
-            function rejected(reason) {
+            function rejected(reason:any) {
                 $log.error(reason);
             },
-            function notify(update) {
+            function notify(update:any) {
                 $log.info(update);
             }
         );

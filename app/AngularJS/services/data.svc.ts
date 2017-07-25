@@ -7,7 +7,7 @@
 
     dataSvc.$inject = ['$q', '$timeout'];
 
-    function dataSvc($q, $timeout) {
+    function dataSvc($q:any , $timeout:any) {
         var service = {
             getData: _getData
         };

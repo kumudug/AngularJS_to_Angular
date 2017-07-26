@@ -1,3 +1,7 @@
+import * as angular from 'angular';
+
+import { Hero }  from '../../Angular/hero';
+
 (function() {
     'use strict';
 
@@ -16,7 +20,12 @@
             name: 'hero1'
         };
 
-        vm.onDelete = function(event:any){
+        vm.hero2 = {
+            id: 2,
+            name: 'hero2'
+        };
+
+        vm.onDelete = function(event:Hero){
             console.log(event);
         }
 

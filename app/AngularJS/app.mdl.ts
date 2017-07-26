@@ -20,5 +20,5 @@ import { HeroDetail } from './directives/hero-detail.directive';
     ]);
 
     app.directive('heroDetail', downgradeComponent({ component: HeroDetailComponent }) as ng.IDirectiveFactory);
-    app.component('heroDetailComponent', new HeroDetail());
+    app.component('heroDetailDirectiveComponent', new HeroDetail());
 })();

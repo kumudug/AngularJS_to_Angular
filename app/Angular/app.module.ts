@@ -4,6 +4,7 @@ import { UpgradeModule } from '@angular/upgrade/static';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroDetailDirective } from './hero-detail.directive.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { HeroDetailComponent } from './hero-detail.component';
     UpgradeModule
   ],
   declarations: [
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroDetailDirective
   ],
   entryComponents: [
     HeroDetailComponent

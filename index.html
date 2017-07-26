@@ -10,11 +10,22 @@
         <div ng-repeat="n in vm.data">
             {{n.number}} - {{n.name}}
         </div>
-        <hero-detail [hero]="vm.hero" (deleted)="vm.onDelete($event)">
-        </hero-detail>
-        <hero-detail-component [hero]="vm.hero" (deleted)="vm.onDelete($event)">
-        </hero-detail-component>
+
+        <br/><br/>
+        <!-- Downgraded Angular component -->
+        <span><strong>Downgraded Angular component</strong></span>
+        <hero-detail [hero]="vm.hero" (deleted)="vm.onDelete($event)"></hero-detail>
+
+        <br/><br/>
+        <!-- AngularJS component directive  -->
+        <span><strong>AngularJS component directive</strong></span>
+        <hero-detail-directive-component hero="vm.hero2" deleted="vm.onDelete($event)"></hero-detail-directive-component>
     </div>
+    <br/><br/>
+    <!-- Angular component -->
+    <span><strong>Angular component</strong></span>
+    <hero-detail></hero-detail>
+
     <!--<div ng-include="'app/views/home.tpl.html'"></div>-->
     <!--<script src="node_modules/angular/angular.min.js"></script>
     <script src="app/app.mdl.js"></script>
